@@ -8,6 +8,7 @@ const socket = require("socket.io");
 require("dotenv").config();
 
 app.use(cors());
+
 app.use(express.json());
 
 mongoose
@@ -30,7 +31,7 @@ const server = app.listen(process.env.PORT, () =>
 );
 const io = socket(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://zeechat.onrender.com"],
     credentials: true,
   },
 });
